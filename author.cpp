@@ -1,38 +1,27 @@
-#ifndef AUTHOR 
-#define AUTHOR 
-#include <string>
+#ifndef AUTHOR
+#define AUTHOR
 #include <iostream>
+using namespace std;
 
-class Author
-{
+class Author{
     private:
-    std::string name;
-    std::string surname;
-
+    string name;
+    string surname;
     public:
-    Author():name(""),surname(""){};
-    Author(std::string name, std::string surname) : name(name), surname(surname){};
+    Author(){};
+    Author(string name, string surname):name(name), surname(surname){};
+    string toString() {
+        return name +" " + surname;
 
-    void print()
-    {
-        std::cout << name << " " << surname << std::endl;
-    }
-
-    std::string toString()
-    {
-        return name + " " + surname;
     };
-
-    std::string getName()
-    {
+    string getName(){
         return name;
-    };
-
-    std::string getSurname()
-    {
+    }
+    string getSurname(){
         return surname;
     };
-
-
+    void print(){
+        cout << name<<" "<<surname<<endl;
+    }
 };
 #endif

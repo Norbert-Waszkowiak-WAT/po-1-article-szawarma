@@ -1,45 +1,35 @@
-#ifndef CHAPTER
+#ifndef CHAPTER 
 #define CHAPTER
-#include <string>
 #include <iostream>
+#include <string>
 #include "author.cpp"
 #include "article.cpp"
 using namespace std;
 
-class Chapter
-{
-    private: 
-        string title;
-        Author author;
-        int chapterNumber;
-    public:
-        Chapter(): title(""), author(Author()), chapterNumber(1) {};
-        Chapter(string chapterTitle, Author chapterAuthor, int number)
-            : title(chapterTitle), author(chapterAuthor), chapterNumber(number) {};
-        Chapter(Chapter &other)
-            : title(other.title), author(other.author), chapterNumber(other.chapterNumber) {};
-        Chapter(Article &article)
-            : title(article.getTitle()), author(article.getAuthor()), chapterNumber(1) {};
-
-    void displayInfo()
-    {
+class Chapter {
+private:
+    string title;
+    Author author;
+    int chapterNumber;
+public:
+    Chapter(): title(""), author(Author()), chapterNumber(1){};
+    Chapter(string chapterTitle, Author chapterAuthor, int number)
+        : title(chapterTitle), author(chapterAuthor), chapterNumber(number){};
+    Chapter(Chapter const &other)
+        : title(other.title), author(other.author), chapterNumber(other.chapterNumber){};
+    Chapter(Article &article)
+        : title(article.getTitle()), author(article.getAuthor()), chapterNumber(1){};
+    void displayInfo(){
         cout << "Chapter " << chapterNumber << ": " << title << " by " << author.toString() << endl;
     };
-    
-    string getTitle()
-    {
+    string getTitle(){
         return title;
     };
-
-    Author getAuthor()
-    {
+    Author getAuthor(){
         return author;
     };
-
-    int getChapterNumber()
-    {
+    int getChapterNumber(){
         return chapterNumber;
     };
-
 };
 #endif
